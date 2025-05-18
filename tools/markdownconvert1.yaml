@@ -1,0 +1,82 @@
+description:
+  human:
+    en_US: MarkdownConvert is a markdown to others file tool
+    pt_BR: MarkdownConvert is a markdown to others file tool
+    zh_Hans: MarkdownConvert 是一个Markdown到其他文件的工具
+  llm: MarkdownConvert is a tool used to generate images from text
+extra:
+  python:
+    source: tools/markdownconvert1.py
+identity:
+  author: morgan
+  description:
+    en_US: MarkdownConvert is a powerful tool that converts Markdown files to various formats like PDF, with support for custom styling.
+    pt_BR: MarkdownConvert é uma ferramenta poderosa que converte arquivos Markdown para diversos formatos, como PDF, com suporte a estilos personalizados.
+    zh_Hans: MarkdownConvert 1 是一个强大的Markdown转换成PDF的工具，它可以根据直接转换为PDF，可以根据自己的喜好设置样式。
+  label:
+    en_US: MarkdownConvert 1
+    zh_Hans: Markdown 1 转换成PDF
+  name: markdownconvert
+parameters:
+- form: llm
+  human_description:
+    en_US: The Markdown content you want to convert
+    pt_BR: O conteúdo Markdown que você deseja converter
+    zh_Hans: 需要转换的 Markdown 内容
+  label:
+    en_US: Markdown Content
+    pt_BR: Conteúdo Markdown
+    zh_Hans: Markdown 内容
+  llm_description: Provide the Markdown text that you want to convert to PDF or other formats.
+  name: markdown
+  required: true
+  type: string
+- default: default
+  form: form
+  human_description:
+    en_US: Select the style template for the exported PDF
+    pt_BR: Selecione o estilo do modelo para o PDF exportado
+    zh_Hans: 请选择导出 PDF 的样式模板
+  label:
+    en_US: PDF Style
+    pt_BR: Estilo do PDF
+    zh_Hans: PDF 样式风格
+  name: style
+  options:
+    - label:
+        en_US: Default (Simple)
+        pt_BR: Padrão (Simples)
+        zh_Hans: 默认（简洁风）
+      value: default
+    - label:
+        en_US: Tech Blue
+        pt_BR: Tecnologia Azul
+        zh_Hans: 科技蓝
+      value: tech_blue
+    - label:
+        en_US: Business (Dark Theme)
+        pt_BR: Negócios (Tema Escuro)
+        zh_Hans: 商务黑
+      value: business_dark
+    - label:
+        en_US: Pastel (Soft Colors)
+        pt_BR: Pastel (Cores Suaves)
+        zh_Hans: 马卡龙色系
+      value: pastel
+  required: true
+  type: select
+#- default: 1
+#  form: form
+#  human_description:
+#    en_US: used for selecting the number of images
+#    pt_BR: used for selecting the number of images
+#    zh_Hans: 用于选择图像数量
+#  label:
+#    en_US: Number of images
+#    pt_BR: Number of images
+#    zh_Hans: 图像数量
+#  max: 10
+#  min: 1
+#  name: n
+#  required: true
+#  type: number
