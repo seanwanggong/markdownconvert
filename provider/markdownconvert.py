@@ -11,7 +11,7 @@ class MarkdownConvertTool(Tool):
         Markdown 转换工具
         tool_parameters:
             - markdown_text: 要转换的 markdown 文本
-            - output_format: 输出格式（'html' 或 'plain_text'）
+            - sytle:  PDF格式
         """
         provider = MarkdownConvertPDFProvider()
         try:
@@ -22,3 +22,6 @@ class MarkdownConvertTool(Tool):
                 yield self.create_text_message(str(result.get('message', '转换失败')))
         except Exception as e:
             yield self.create_text_message(f"转换失败: {str(e)}")
+
+
+

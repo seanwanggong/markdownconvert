@@ -1,0 +1,76 @@
+description:
+  human:
+    en_US: MarkdownConvert is a markdown to others file tool
+    pt_BR: MarkdownConvert is a markdown to others file tool
+    zh_Hans: MarkdownConvert 是一个Markdown到其他文件的工具
+  llm: MarkdownConvert is a tool used to generate images from text
+
+extra:
+  python:
+    source: tools/markdownconvert_html.py
+
+identity:
+  author: seanwanggong
+  description:
+    en_US: MarkdownConvert is a powerful tool that converts Markdown files to HTML, with support for custom styling.
+    pt_BR: MarkdownConvert é uma ferramenta poderosa que converte arquivos Markdown para HTML, com suporte a estilos personalizados.
+    zh_Hans: MarkdownConvert 是一个强大的 Markdown 转 HTML 工具，支持自定义样式。
+  label:
+    en_US: MarkdownConvert to HTML
+    zh_Hans: MarkdownConvert 转换成HTML
+  name: markdownconvert
+
+parameters:
+  - form: llm
+    human_description:
+      en_US: The Markdown content you want to convert
+      pt_BR: O conteúdo Markdown que você deseja converter
+      zh_Hans: 需要转换的 Markdown 内容
+    label:
+      en_US: Markdown Content
+      pt_BR: Conteúdo Markdown
+      zh_Hans: Markdown 内容
+    llm_description: Provide the Markdown text that you want to convert to HTML or other formats.
+    name: markdown
+    required: true
+    type: string
+
+  - default: default
+    form: form
+    human_description:
+      en_US: Select the style template for the exported HTML
+      pt_BR: Selecione o estilo do modelo para o HTML exportado
+      zh_Hans: 请选择导出 HTML 的样式模板
+    label:
+      en_US: HTML Style
+      pt_BR: Estilo do HTML
+      zh_Hans: HTML 样式风格
+    name: style
+    options:
+      - label:
+          en_US: Default (Simple)
+          pt_BR: Padrão (Simples)
+          zh_Hans: 默认（简洁风）
+        value: default
+      - label:
+          en_US: Tech Blue
+          pt_BR: Tecnologia Azul
+          zh_Hans: 科技蓝
+        value: tech_blue
+      - label:
+          en_US: Business (Dark Theme)
+          pt_BR: Negócios (Tema Escuro)
+          zh_Hans: 商务黑
+        value: business_dark
+      - label:
+          en_US: Pastel (Soft Colors)
+          pt_BR: Pastel (Cores Suaves)
+          zh_Hans: 马卡龙色系
+        value: pastel
+      - label:
+          en_US: Grand (Elegant)
+          pt_BR: Grand (Elegante)
+          zh_Hans: 大气
+        value: grand
+    required: true
+    type: select

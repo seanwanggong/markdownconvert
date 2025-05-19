@@ -12,10 +12,10 @@ identity:
   description:
     en_US: MarkdownConvert is a powerful tool that converts Markdown files to various formats like PDF, with support for custom styling.
     pt_BR: MarkdownConvert é uma ferramenta poderosa que converte arquivos Markdown para diversos formatos, como PDF, com suporte a estilos personalizados.
-    zh_Hans: MarkdownConvert 1 是一个强大的Markdown转换成PDF的工具，它可以根据直接转换为PDF，可以根据自己的喜好设置样式。
+    zh_Hans: MarkdownConvert to PDFs 是一个强大的Markdown转换成PDF的工具，它可以根据直接转换为PDF，可以根据自己的喜好设置样式。
   label:
-    en_US: MarkdownConvert 1
-    zh_Hans: Markdown 1 转换成PDF
+    en_US: MarkdownConvert 为PDF
+    zh_Hans: MarkdownConvert  转换成PDF
   name: markdownconvert
 parameters:
 - form: llm
@@ -63,6 +63,11 @@ parameters:
         pt_BR: Pastel (Cores Suaves)
         zh_Hans: 马卡龙色系
       value: pastel
+    - label:
+        en_US: grand
+        pt_BR: grand
+        zh_Hans: 大气
+      value: grand
   required: true
   type: select
 #- default: 1

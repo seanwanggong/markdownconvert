@@ -82,7 +82,8 @@
 
 ---
 
-## 联系作者 | Contact
+## 联系作者 | Contact 
+dify plugin package markdownconvert
 
 如有问题或建议，请联系作者 morgan。  
 For questions or suggestions, contact the author: morgan.

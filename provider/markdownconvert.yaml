@@ -64,4 +64,4 @@ identity:
   - productivity
 tools:
 - tools/markdownconvert_pdf.yaml
-#- tools/MarkdownConvert2.yaml
+- tools/markdownconvert_html.yaml
