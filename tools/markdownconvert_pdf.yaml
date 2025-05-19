@@ -6,9 +6,9 @@ description:
   llm: MarkdownConvert is a tool used to generate images from text
 extra:
   python:
-    source: tools/markdownconvert1.py
+    source: tools/markdownconvert_pdf.py
 identity:
-  author: morgan
+  author: seanwanggong
   description:
     en_US: MarkdownConvert is a powerful tool that converts Markdown files to various formats like PDF, with support for custom styling.
     pt_BR: MarkdownConvert é uma ferramenta poderosa que converte arquivos Markdown para diversos formatos, como PDF, com suporte a estilos personalizados.

@@ -1,4 +1,7 @@
-dify_plugin==0.0.1b65
-openai==1.55.1
+dify_plugin>=0.0.1b65
+openai>=1.55.1
 markdown>=3.4.0
-dify-plugin>=0.0.1
+weasyprint>=60.2
+cffi>=1.15.1
+html5lib>=1.1
+watchdog>=3.0.0

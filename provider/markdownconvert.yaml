@@ -48,7 +48,7 @@ extra:
   python:
     source: provider/markdownconvert.py
 identity:
-  author: Morgan
+  author: seanwanggong
   description:
     en_US: MarkdownConvert
     pt_BR: MarkdownConvert
@@ -63,5 +63,5 @@ identity:
   - image
   - productivity
 tools:
-- tools/markdownconvert1.yaml
+- tools/markdownconvert_pdf.yaml
 #- tools/MarkdownConvert2.yaml

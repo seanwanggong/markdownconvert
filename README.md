@@ -1,10 +1,10 @@
-# makedownchange
+# MarkdownConvert
 
 ## 简介 | Introduction
 
-**makedownchange** 是一个用于 Dify 的 Markdown 文件批量转换插件，支持将 Markdown 文件自动转换为 PDF，并可自定义样式。支持实时目录监控、批量处理、以及多种输出风格，适合文档自动归档、批量格式转换等场景。
+**MarkdownConvert** 是一个用于 Dify 的 Markdown 文件批量转换插件，支持将 Markdown 文件自动转换为 PDF，并可自定义样式。支持实时目录监控、批量处理、以及多种输出风格，适合文档自动归档、批量格式转换等场景。
 
-**makedownchange** is a Dify plugin for batch converting Markdown files to PDF with customizable styles. It supports real-time directory monitoring, batch processing, and multiple output styles, making it ideal for document archiving and format conversion.
+**MarkdownConvert** is a Dify plugin for batch converting Markdown files to PDF with customizable styles. It supports real-time directory monitoring, batch processing, and multiple output styles, making it ideal for document archiving and format conversion.
 
 ---
 
