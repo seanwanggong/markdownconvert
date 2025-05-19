@@ -65,18 +65,14 @@ class MarkdownConvertPDFProvider(ToolProvider):
             </body>
             </html>
             """
-            with open('test.html', 'w', encoding='utf-8') as f:
-                f.write(full_html)
+            # with open('test.html', 'w', encoding='utf-8') as f:
+            #     f.write(full_html)
             pdf_io = io.BytesIO()
             BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-            font_path = os.path.join(BASE_DIR, 'fonts', '方正兰亭黑简体.ttf')
             HTML(string=full_html, base_url=BASE_DIR).write_pdf(
                 pdf_io,
                 stylesheets=[CSS(string=final_style)]
             )
-            print('[invoke] BASE_DIR:', BASE_DIR)
-            print('[invoke] font_path:', font_path)
-            print('[invoke] font exists:', os.path.exists(font_path))
             pdf_io.seek(0)
             return {
                 "status": "success",

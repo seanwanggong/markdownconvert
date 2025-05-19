@@ -6,6 +6,9 @@ import re
 from dify_plugin import Tool
 from dify_plugin.entities.tool import ToolInvokeMessage
 import os
+import uuid
+from datetime import datetime
+import base64
 
 from fonts.style import DEFAULT_STYLE, TECH_BLUE_STYLE, BUSINESS_DARK_STYLE, PASTEL_STYLE, GRAND_STYLE
 
@@ -17,6 +20,10 @@ STYLE_MAP = {
     "grand": GRAND_STYLE,
 }
 
+# 创建输出目录
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+OUTPUT_DIR = os.path.join(BASE_DIR, 'static', 'output')
+os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 class MarkdownConverter:
     def __init__(self):
@@ -66,11 +73,30 @@ class MarkdownConvertHtmlProvider(ToolProvider):
             </html>
             """
 
+            # 生成唯一的文件名
+            timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+            unique_id = str(uuid.uuid4())[:8]
+            filename = f"markdown_{timestamp}_{unique_id}.html"
+            filepath = os.path.join(OUTPUT_DIR, filename)
+
+            # 保存HTML文件
+            with open(filepath, 'w', encoding='utf-8') as f:
+                f.write(full_html)
+
+            # 构建可访问的URL
+            file_url = f"/static/output/{filename}"
+
+            # 将HTML内容转换为bytes
+            html_bytes = full_html.encode('utf-8')
+
             return {
                 "status": "success",
-                "result": full_html,
+                "result": html_bytes,  # 直接返回bytes类型
                 "execution_metadata": {
-                    "format": "html"
+                    "format": "html",
+                    "filename": filename,
+                    "filepath": filepath,
+                    "url": file_url
                 }
             }
         except Exception as e:
@@ -96,13 +122,29 @@ class MarkdownConvertHtmlTool(Tool):
     def _invoke(self, tool_parameters: dict) -> Generator[ToolInvokeMessage, None, None]:
         result = self.provider.invoke(tool_parameters)
         if result.get("status") == "success":
-            yield ToolInvokeMessage(
-                type=ToolInvokeMessage.MessageType.TEXT,
-                message=ToolInvokeMessage.TextMessage(text=result["result"]),
-                meta={
-                    "mime_type": "text/html",
-                    "filename": "markdown_converted.html"
-                }
+            # 创建文件消息
+            file_message = ToolInvokeMessage(
+                type=ToolInvokeMessage.MessageType.BLOB,
+                message=ToolInvokeMessage.BlobMessage(
+                    blob=result["result"],  # 直接使用bytes数据
+                    meta={
+                        "mime_type": "text/html",
+                        "filename": result["execution_metadata"]["filename"]
+                    }
+                )
             )
+            
+            # 创建文本消息
+            text_message = ToolInvokeMessage(
+                type=ToolInvokeMessage.MessageType.TEXT,
+                message=ToolInvokeMessage.TextMessage(
+                    text=f"HTML文件已生成，点击链接查看: {result['execution_metadata']['url']}"
+                )
+            )
+            
+            # 先发送文件消息
+            yield file_message
+            # 再发送文本消息
+            yield text_message
         else:
             yield self.create_text_message(result.get("message", "Unknown error"))

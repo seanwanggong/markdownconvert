@@ -18,7 +18,7 @@ identity:
   label:
     en_US: MarkdownConvert to HTML
     zh_Hans: MarkdownConvert 转换成HTML
-  name: markdownconvert
+  name: markdownconvert_html
 
 parameters:
   - form: llm
