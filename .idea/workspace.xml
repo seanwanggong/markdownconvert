@@ -5,20 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c8e5b26c-6dbf-4820-aca3-4329aa437cb9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/fonts/NotoColorEmoji-Regular.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fonts/style.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fonts/方正兰亭黑简体.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_styles.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tools/markdownconvert_html.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tools/markdownconvert_html.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/provider/markdownconvert.py" beforeDir="false" afterPath="$PROJECT_DIR$/provider/markdownconvert.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/provider/markdownconvert.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/provider/markdownconvert.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/markdownconvert_pdf.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/markdownconvert_pdf.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/markdownconvert_pdf.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/tools/markdownconvert_pdf.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/markdownconvert_html.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/markdownconvert_html.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,7 +100,7 @@
       <option name="presentableId" value="Default" />
       <updated>1747601390860</updated>
       <workItem from="1747601392048" duration="11063000" />
-      <workItem from="1747653830324" duration="887000" />
+      <workItem from="1747653830324" duration="1278000" />
     </task>
     <servers />
   </component>

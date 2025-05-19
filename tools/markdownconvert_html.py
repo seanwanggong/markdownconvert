@@ -3,8 +3,6 @@ from dify_plugin.errors.tool import ToolProviderCredentialValidationError
 from dify_plugin import ToolProvider
 import markdown
 import re
-from weasyprint import HTML, CSS
-import io
 from dify_plugin import Tool
 from dify_plugin.entities.tool import ToolInvokeMessage
 import os
@@ -37,7 +35,6 @@ class MarkdownConvertHtmlProvider(ToolProvider):
         try:
             markdown_text = tool_parameters.get('markdown', '')
             style_key = tool_parameters.get('style', 'default')
-            output_format = tool_parameters.get('format', 'pdf')  # New parameter for output format
             pygments_css = HtmlFormatter(style="default").get_style_defs('.codehilite')
             custom_style = STYLE_MAP.get(style_key, DEFAULT_STYLE)
             final_style = custom_style + "\n" + pygments_css
@@ -69,31 +66,13 @@ class MarkdownConvertHtmlProvider(ToolProvider):
             </html>
             """
 
-            if output_format == 'html':
-                return {
-                    "status": "success",
-                    "result": full_html,
-                    "execution_metadata": {
-                        "format": "html"
-                    }
+            return {
+                "status": "success",
+                "result": full_html,
+                "execution_metadata": {
+                    "format": "html"
                 }
-            else:  # PDF conversion
-                with open('test.html', 'w', encoding='utf-8') as f:
-                    f.write(full_html)
-                pdf_io = io.BytesIO()
-                BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-                HTML(string=full_html, base_url=BASE_DIR).write_pdf(
-                    pdf_io,
-                    stylesheets=[CSS(string=final_style)]
-                )
-                pdf_io.seek(0)
-                return {
-                    "status": "success",
-                    "result": pdf_io.read(),
-                    "execution_metadata": {
-                        "format": "html"
-                    }
-                }
+            }
         except Exception as e:
             import traceback
             error_msg = str(e) + "\n" + traceback.format_exc()
@@ -109,7 +88,7 @@ class MarkdownConvertHtmlProvider(ToolProvider):
             }
 
 
-class MarkdownConvertTool(Tool):
+class MarkdownConvertHtmlTool(Tool):
     def __init__(self, runtime=None, session=None):
         super().__init__(runtime=runtime, session=session)
         self.provider = MarkdownConvertHtmlProvider()
@@ -118,12 +97,12 @@ class MarkdownConvertTool(Tool):
         result = self.provider.invoke(tool_parameters)
         if result.get("status") == "success":
             yield ToolInvokeMessage(
-                    type=ToolInvokeMessage.MessageType.TEXT,
-                    message=ToolInvokeMessage.TextMessage(text=result["result"]),
-                    meta={
-                        "mime_type": "text/html",
-                        "filename": "markdown_converted.html"
-                    }
-                )
+                type=ToolInvokeMessage.MessageType.TEXT,
+                message=ToolInvokeMessage.TextMessage(text=result["result"]),
+                meta={
+                    "mime_type": "text/html",
+                    "filename": "markdown_converted.html"
+                }
+            )
         else:
             yield self.create_text_message(result.get("message", "Unknown error"))

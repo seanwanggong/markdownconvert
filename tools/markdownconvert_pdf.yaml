@@ -16,7 +16,7 @@ identity:
   label:
     en_US: MarkdownConvert 为PDF
     zh_Hans: MarkdownConvert  转换成PDF
-  name: markdownconvert
+  name: markdownconvertPdf
 parameters:
 - form: llm
   human_description:
